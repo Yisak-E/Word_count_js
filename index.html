@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>word count</title>
+    <style>
+        body{
+            display:flex;
+            flex-direction: column;
+            
+        }
+        div{
+            padding: 20px;
+            align-self: center;
+            width: 300px;
+            height: 400px;
+           display: flex;
+           flex-direction: column;
+           align-content: center;
+           background-color: blanchedalmond;
+           border-radius: 7px;
+
+        }
+        input{
+            text-align: right;
+            width: 100px;
+            
+        }
+        button{
+            width: 50px;
+            align-self: center;
+            font-weight: 700;
+            margin-right: 50px;
+        }
+        #btns{
+            flex-direction: row;
+            width:200px; 
+            height: 20px;
+        }
+      
+    </style>
+
+    
+</head>
+
+<body>
+    <div>
+    <h1>Word Counter</h1>
+    
+    <label> Word counts: </label>
+    <input type="number" id="count_result" value="0" disabled><br>
+    <textarea rows="20" cols="50" name="my-text" placeholder="type or paste here" ></textarea><br>
+   <div id="btns" ><button id="count_btn">count</button>
+<button id="clear" onclick="location.reload();">clear</button></div>
+    </div>
+<script>
+    const texts = document.querySelector('textarea');
+    const counter = document.querySelector('input');
+    let btn = document.querySelector('button');
+
+
+    btn.onclick = get_text;
+
+    function get_text() {
+        let words = texts.value;
+        let word_list = words.trim().split(' ');
+        counter.value = word_list.length;
+       
+    }
+
+</script>
+
+   
+
+</body>
+</html>
